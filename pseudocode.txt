@@ -36,3 +36,13 @@ WHILE "order" is TRUE
     END IF
 
 END WHILE
+
+
+IF "total_payment" more than or equal 300000
+    PRINT "Selamat anda mendapatkan discount 10%"
+    STORE "discount_price" with "total_payment" multiply by 0.1
+    STORE "total_payment" with CALCULATE "total_payment" MINUS "discount_price"
+END IF
+
+
+PRINT "Total yang harus dibayar adalah : " + "total_payment"
