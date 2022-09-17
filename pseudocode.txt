@@ -46,3 +46,8 @@ END IF
 
 
 PRINT "Total yang harus dibayar adalah : " + "total_payment"
+
+PRINT "Masukan uang customer : "
+READ AND WRITE "customer_money" with NUMBER
+
+PRINT "Total Kembalian : " "customer_money" MINUS "total_payment"
