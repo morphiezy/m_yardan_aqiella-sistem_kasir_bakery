@@ -1,1 +1,7 @@
 PROGRAM SISTEM_KASIR_BAKERY
+
+
+STORE "order" AS BOOLEAN with TRUE
+STORE "total_payment" AS NUMBER with 0
+
+DISPLAY "list cake menu"
