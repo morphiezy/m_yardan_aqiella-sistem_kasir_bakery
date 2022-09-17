@@ -5,3 +5,20 @@ STORE "order" AS BOOLEAN with TRUE
 STORE "total_payment" AS NUMBER with 0
 
 DISPLAY "list cake menu"
+
+READ AND WRITE "cake_code" with STRING
+READ AND WRITE "quantity" with NUMBER
+
+
+IF cake_code EQUAL "RBCKE"
+    STORE "cake_price" with 60000
+    STORE "total_payment" with CALCULATE "total_payment" PLUS ("cake_price" multiply by "quantity")
+ELSE IF cake_code EQUAL "BCFFK"
+    STORE "cake_price" with 56000
+    STORE "total_payment" with CALCULATE "total_payment" PLUS ("cake_price" multiply by "quantity")
+ELSE IF cake_code EQUAL "MBCKE"
+    STORE "cake_price" with 72000
+    STORE "total_payment" with CALCULATE "total_payment" PLUS ("cake_price" multiply by "quantity")
+ELSE
+    PRINT "Code cake yang anda masukan salah"
+END IF
