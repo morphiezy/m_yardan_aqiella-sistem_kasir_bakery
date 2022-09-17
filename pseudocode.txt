@@ -1,0 +1,53 @@
+PROGRAM SISTEM_KASIR_BAKERY
+
+
+STORE "order" AS BOOLEAN with TRUE
+STORE "total_payment" AS NUMBER with 0
+
+
+WHILE "order" is TRUE
+
+    DISPLAY "list cake menu"
+
+    READ AND WRITE "cake_code" with STRING
+    READ AND WRITE "quantity" with NUMBER
+    
+
+    IF cake_code EQUAL "RBCKE"
+        STORE "cake_price" with 60000
+        STORE "total_payment" with CALCULATE "total_payment" PLUS ("cake_price" multiply by "quantity")
+    ELSE IF cake_code EQUAL "BCFFK"
+        STORE "cake_price" with 56000
+        STORE "total_payment" with CALCULATE "total_payment" PLUS ("cake_price" multiply by "quantity")
+    ELSE IF cake_code EQUAL "MBCKE"
+        STORE "cake_price" with 72000
+        STORE "total_payment" with CALCULATE "total_payment" PLUS ("cake_price" multiply by "quantity")
+    ELSE
+        PRINT "Code cake yang anda masukan salah"
+    END IF
+
+
+    READ AND WRITE "order_again" with STRING
+
+    IF "order_again" EQUAL "YES"
+        STORE "order" with TRUE
+    ELSE IF "order_again" EQUAL "NO"
+        STORE "order" with FALSE
+    END IF
+
+END WHILE
+
+
+IF "total_payment" more than or equal 300000
+    PRINT "Selamat anda mendapatkan discount 10%"
+    STORE "discount_price" with "total_payment" multiply by 0.1
+    STORE "total_payment" with CALCULATE "total_payment" MINUS "discount_price"
+END IF
+
+
+PRINT "Total yang harus dibayar adalah : " + "total_payment"
+
+PRINT "Masukan uang customer : "
+READ AND WRITE "customer_money" with NUMBER
+
+PRINT "Total Kembalian : " "customer_money" MINUS "total_payment"
